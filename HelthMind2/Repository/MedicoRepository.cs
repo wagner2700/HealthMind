@@ -1,6 +1,7 @@
 ﻿using HelthMind2.Context;
+using HelthMind2.Dtos;
 using HelthMind2.Model;
- 
+
 namespace HelthMind2.Repository
 {
     public class MedicoRepository
@@ -34,9 +35,16 @@ namespace HelthMind2.Repository
             dataBaseContext.SaveChanges();
         }
 
-        public void Excluir(int id)
+        public void Excluir(MedicoModel medico)
         {
-        var medico = new MedicoModel( id ,"","","","");
+            dataBaseContext.medico.Remove(medico);
+            dataBaseContext.SaveChanges();
+        }
+
+        internal void atualizar(MedicoModel medico)
+        {
+            dataBaseContext.medico.Update(medico);
+            dataBaseContext.SaveChanges();
         }
     }
 }

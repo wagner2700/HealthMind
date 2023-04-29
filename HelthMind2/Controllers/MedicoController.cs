@@ -1,10 +1,13 @@
-﻿using HelthMind2.Context;
+﻿using AutoMapper;
+using HelthMind2.Context;
+using HelthMind2.Dtos;
 using HelthMind2.Model;
 using HelthMind2.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 
 namespace HelthMind2.Controllers
 {
@@ -13,10 +16,15 @@ namespace HelthMind2.Controllers
     public class MedicoController : ControllerBase
     {
         private readonly MedicoRepository medicoRepository;
+        private IMapper _mapper;
 
-        public MedicoController(DataBaseContext context)
+
+       
+
+        public MedicoController(DataBaseContext context , IMapper mapper)
         {
             medicoRepository = new MedicoRepository(context);
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -42,7 +50,7 @@ namespace HelthMind2.Controllers
             }
 
         [HttpPost]
-        public ActionResult<MedicoModel> Post([FromBody] MedicoModel medicoModel)
+        public ActionResult<MedicoModel> Post([FromBody] CreateMedicoDto medicoDto)
         {
             if (!ModelState.IsValid)
             {
@@ -50,11 +58,15 @@ namespace HelthMind2.Controllers
 
             }
 
+            
+
+
             try
             {
-                medicoRepository.Inserir(medicoModel);
-                var location = new Uri(Request.GetEncodedUrl() + "/" + medicoModel.MedicoId);
-                return Created(location, medicoModel);
+                MedicoModel medico = _mapper.Map<MedicoModel>(medicoDto);
+                medicoRepository.Inserir(medico);
+                var location = new Uri(Request.GetEncodedUrl() + "/" + medico.MedicoId);
+                return Created(location, medico);
             }
                 catch(Exception error)
             {
@@ -75,6 +87,39 @@ namespace HelthMind2.Controllers
             }catch (KeyNotFoundException ex) 
             {
                 throw ex;
+            }
+        }
+        [HttpPut("{id:int}")]
+        public IActionResult AtualizarMedico(int id , [FromBody] MedicoModel medico)
+        {
+            try
+            {
+                var medicoModel = medicoRepository.ConsultarPorId(id);
+               
+                medicoRepository.atualizar(medicoModel);
+                return Ok(medicoModel);
+
+            }
+            catch(Exception e)
+            {
+                return NotFound();
+            }
+
+            
+            
+        }
+
+        [HttpDelete("{id:int}")]
+        public IActionResult DeletarMedico(MedicoModel medicoModel)
+        {
+            try
+            {
+                medicoRepository.Excluir(medicoModel);
+                return Ok(medicoModel);
+            }
+            catch (Exception e)
+            {
+                return NotFound();
             }
         }
     }

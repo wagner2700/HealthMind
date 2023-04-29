@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "DzH8UhLD9Cx9QpqYUHZsku8Im7XRYrBGhf8V/+42DRYt2xWPVEID4UtgSBwVH/cvF+au3UwKdJ4TqSY5LVeu7A==",
+  "dgSpecHash": "I30Mj4PbQJ0Le7fw8mO5D9KnxkGW1QgRXsyuzHiuW/dn+A7fVg9HBDATKkJmield1O97aFADhvalcrIMKbFcrg==",
   "success": true,
   "projectFilePath": "C:\\Users\\wagne\\Desktop\\Zteste\\HelthMind2\\HelthMind2\\HelthMind2.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\wagne\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\wagne\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\wagne\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.5\\microsoft.entityframeworkcore.abstractions.7.0.5.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.5\\microsoft.entityframeworkcore.analyzers.7.0.5.nupkg.sha512",

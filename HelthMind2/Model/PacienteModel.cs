@@ -28,6 +28,11 @@ namespace HelthMind2.Model
             [Required]
             public string Estado { get; set; }
 
+            
+            public int MedicoId { get; set; }
+            public virtual MedicoModel Medico { get; set; }
+
+
         public PacienteModel(int pacienteId, string nome, string cpfPaciente, string estado)
         {
             PacienteId = pacienteId;

@@ -144,3 +144,5 @@ C:\Users\wagne\Desktop\Zteste\HelthMind2\HelthMind2\obj\Debug\net6.0\refint\Helt
 C:\Users\wagne\Desktop\Zteste\HelthMind2\HelthMind2\obj\Debug\net6.0\HelthMind2.pdb
 C:\Users\wagne\Desktop\Zteste\HelthMind2\HelthMind2\obj\Debug\net6.0\HelthMind2.genruntimeconfig.cache
 C:\Users\wagne\Desktop\Zteste\HelthMind2\HelthMind2\obj\Debug\net6.0\ref\HelthMind2.dll
+C:\Users\wagne\Desktop\Zteste\HelthMind2\HelthMind2\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\wagne\Desktop\Zteste\HelthMind2\HelthMind2\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

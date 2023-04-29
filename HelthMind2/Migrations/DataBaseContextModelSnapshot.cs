@@ -74,6 +74,9 @@ namespace HelthMind2.Migrations
                         .HasColumnType("NVARCHAR2(2000)")
                         .HasColumnName("ESTADO");
 
+                    b.Property<int>("MedicoId")
+                        .HasColumnType("NUMBER(10)");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)")
@@ -81,7 +84,27 @@ namespace HelthMind2.Migrations
 
                     b.HasKey("PacienteId");
 
+                    b.HasIndex("MedicoId")
+                        .IsUnique();
+
                     b.ToTable("PACIENTE");
+                });
+
+            modelBuilder.Entity("HelthMind2.Model.PacienteModel", b =>
+                {
+                    b.HasOne("HelthMind2.Model.MedicoModel", "Medico")
+                        .WithOne("paciente")
+                        .HasForeignKey("HelthMind2.Model.PacienteModel", "MedicoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Medico");
+                });
+
+            modelBuilder.Entity("HelthMind2.Model.MedicoModel", b =>
+                {
+                    b.Navigation("paciente")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

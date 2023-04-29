@@ -28,6 +28,8 @@ namespace HelthMind2.Model
             [Column("CRM")]
             public string CRMMedico { get; set; }
 
+            public virtual PacienteModel paciente { get; set; }
+
         public MedicoModel(int medicoId, string nomeMedico, string cpf, string especialidade, string cRMMedico)
         {
             MedicoId = medicoId;
@@ -41,6 +43,10 @@ namespace HelthMind2.Model
         {
             MedicoId = medicoId;
          
+        }
+
+        public MedicoModel()
+        {
         }
     }
     }
