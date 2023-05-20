@@ -1,11 +1,11 @@
-using HelthMind2.Context;
+using SistemaApiIdwall.Context;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
-builder.Services.AddDbContext<DataBaseContext>(options => options.UseOracle(connectionString).EnableSensitiveDataLogging(true));
+builder.Services.AddDbContext<DataBaseContext>(options => options.UseLazyLoadingProxies().UseOracle(connectionString).EnableSensitiveDataLogging(true));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

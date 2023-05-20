@@ -1,14 +1,16 @@
-﻿using HelthMind2.Model;
+﻿
+using SistemaApiIdwall.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace HelthMind2.Context
+namespace SistemaApiIdwall.Context
 {
     public class DataBaseContext: DbContext
     {
         
         // Propriedade responsável pelo acesso Medico
-        public DbSet<MedicoModel> medico { get; set; }
-        public DbSet<PacienteModel> paciente { get; set; }
+        public DbSet<SuspeitosModel> Suspeito { get; set; }
+
+        public DbSet<NacionalidadeModel> Nacionalidade;
 
         // Propriedade responsável pelo acesso Paciente
         //public DbSet<PacienteModel> paciente { get; set; }
